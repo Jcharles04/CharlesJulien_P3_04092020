@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "roboto";
+    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap)
+}
+
+@font-face {
+    font-family: "medium";
+    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap)
+}
+
+@font-face {
+    font-family: "bold";
+    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap)
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.3rem;
+    font-family: medium;
+}
+
+a  {
+    text-decoration: none;
+}

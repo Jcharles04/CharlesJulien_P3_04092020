@@ -1,0 +1,79 @@
+.localisation--box {
+    @include blocsetting;
+    text-align: center;
+    align-items: center;
+}
+
+#localisation {
+    font-size: 20px;
+}
+
+#localisation {
+    @include blocsetting;
+    flex-direction: row;
+    background-color: $background-dark-color;
+}
+
+#quote {
+    padding: $soft;
+    background-color: $background-color;
+}
+
+#quote h2, p, a, i{
+    text-align: center;
+    padding: $soft;
+}
+
+#quote a p {
+    @include button;
+}
+
+.container {
+    @include blocsetting;
+    padding: $soft;
+}
+
+.tile {
+    @include tile;
+    @include box-shadow;
+}
+
+.tile i {
+    color: grey;
+}
+
+.tile .number {
+    position: absolute;
+    display: flex;
+    left: 8.5%;
+    border-radius: 10rem;
+    padding: 1px;
+    background-color: $primary-color;
+}
+
+.tile .number p {
+    display: flex;
+    font-size: 1rem;
+    height: .5rem;
+    width: .5rem;
+    align-items: center;
+    color: white;
+}
+
+#food {
+    background-color: $background-color;
+}
+
+.thumbnail {
+    @include thumbnail
+}
+
+.img .restaurant {
+    @include imgrestaurant
+}
+
+.thumbnail__description {
+    @include thumbnail__description
+}
+
+    
