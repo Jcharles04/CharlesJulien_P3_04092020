@@ -1,9 +1,22 @@
 .bottom {
+    padding: 20px;
+    
+    background-color: black;
     display: flex;
     flex-direction: column;
+        a {
+            text-decoration: none;
+            color: white;
+            text-align: left;
+        }
+            :before {
+                padding: 0 10px 0 0;
+                font-size: 10px;
+            }
 }
 
 .bottom img {
-    width: 50%;
+    width: 25%;
+    padding: 0 0 1rem 0;
 }
 

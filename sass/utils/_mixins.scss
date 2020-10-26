@@ -16,7 +16,7 @@
 }
 
 @mixin box-shadow {
-    box-shadow: 3px 3px .8rem grey;
+    box-shadow: 3px 3px .8rem $dark;
 }
 
 @mixin tile {
@@ -35,31 +35,84 @@
 @mixin thumbnail {
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0 0 30px 0;
     display: flex;
-    flex-flow: column nowrap;
+    flex-direction: column;
     border-radius: 30px;
     color: #000;
     box-shadow: 0px 0px 30px #dadada
 }
 
 
-@mixin imgrestaurant{
-    flex: 1;
+@mixin imgRestaurant{
+    height: 200px;
+    position: relative;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position:  50% 65% ;
+    background-color: white;
     background-size: cover;
 }
 
 @mixin thumbnail__description {
-    padding: 0 0 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 0;
     height: 80px;
+    width: 100%;
     background-color: white;
     display: flex;
     align-items: center;
-    flex-direction: column;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+        .text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 0 0 10px;
+        }
+        .fa-heart {
+            padding: 0 20px 0 0;
+            font-size: 1.5rem;  
+        }
+        .fas {
+            position: absolute;
+            right: 8px;
+            color: red;
+        }
+        .far {
+            &:hover {
+                & + .fas {
+                    &> .fas__progress {
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+        .fas {
+            &__progress {
+                transform-origin: bottom;
+                transform: scaleX(0);
+                transition: transform 1500ms;
+            }
+        }
+}
+
+@mixin new {
+    background-color: $tertiary-color;
+    width: 18%;
+    height: 7%;
+    font-size: 1rem;
+    font-weight: bold;
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    @include darker
+}
+
+@mixin darker {
+    color: darken($tertiary-color, 40%)
 }

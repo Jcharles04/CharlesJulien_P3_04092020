@@ -12,6 +12,7 @@
     @include blocsetting;
     flex-direction: row;
     background-color: $background-dark-color;
+    border-top: 3px solid $dark
 }
 
 #quote {
@@ -19,7 +20,7 @@
     background-color: $background-color;
 }
 
-#quote h2, p, a, i{
+h2, p, a, i{
     text-align: center;
     padding: $soft;
 }
@@ -30,7 +31,11 @@
 
 .container {
     @include blocsetting;
-    padding: $soft;
+    padding: $padding-vert;
+    h2 {
+        text-align: start;
+        padding: 0 0 1.5rem 0;
+    }
 }
 
 .tile {
@@ -62,18 +67,42 @@
 
 #food {
     background-color: $background-color;
+    h2 {
+        text-align: start;
+        padding: 0 0 1.5rem 0;
+    }
 }
 
 .thumbnail {
-    @include thumbnail
+    @include thumbnail;
 }
 
-.img .restaurant {
-    @include imgrestaurant
+.img { 
+    @include imgRestaurant;
+}
+.img__one {
+    background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
+}
+.img__two {
+    background-image: url(../img/restaurants/2stil-u2Lp8tXIcjw-unsplash.jpg);
+}
+.img__three {
+    background-image: url(../img/restaurants/3toa-heftiba-DQKerTsQwi0-unsplash.jpg)
+}
+.img__four {
+    background-image: url(../img/restaurants/4louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
+}
+
+.img p {
+    @include new;
 }
 
 .thumbnail__description {
-    @include thumbnail__description
+    @include thumbnail__description;
+        p {
+            padding: 0;
+        }
 }
+
 
     
