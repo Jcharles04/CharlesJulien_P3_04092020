@@ -1,8 +1,9 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
 @import "./base/base";
 @import "./base/typography";
 
-@import "./utils/variables";
-@import "./utils/mixins";
 
 
 @import "./layout/header";
@@ -10,3 +11,4 @@
 
 @import "./pages/home";
 @import "./pages/lapalettedugout";
+@import "./pages/ledelicedessens";

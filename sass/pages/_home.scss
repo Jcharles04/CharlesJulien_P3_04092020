@@ -16,7 +16,7 @@
 }
 
 #quote {
-    padding: $soft;
+    padding: $padding-vert;
     background-color: $background-color;
 }
 
@@ -41,6 +41,12 @@ h2, p, a, i{
 .tile {
     @include tile;
     @include box-shadow;
+    .tile-text {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 .tile i {
@@ -48,12 +54,11 @@ h2, p, a, i{
 }
 
 .tile .number {
-    position: absolute;
     display: flex;
-    left: 8.5%;
     border-radius: 10rem;
     padding: 1px;
     background-color: $primary-color;
+    margin-left: -3%;
 }
 
 .tile .number p {
@@ -103,6 +108,7 @@ h2, p, a, i{
             padding: 0;
         }
 }
+        
 
 
     

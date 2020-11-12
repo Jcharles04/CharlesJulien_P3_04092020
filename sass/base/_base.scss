@@ -5,7 +5,7 @@
 }
 
 html {
-    font-family: "roboto";
+    font-family: "Roboto";
 }
 
 #main {
@@ -14,5 +14,16 @@ html {
     min-width: 320px;
     max-width: 767px;
     margin: auto;
+    z-index: 1;
+    position: relative;
+    .loading {
+        @include loading-spin; 
+    }
 }
+
+
+ 
+
+
+
 

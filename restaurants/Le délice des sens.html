@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../public/css/style.css" rel="stylesheet">
-    <title>La palette du goût</title>
+    <link href="../fontawesome/css/all.css" rel="stylesheet">
+    <link href = "https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel = "stylesheet">
+    <link href = "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel = "stylesheet">
+    <title>Le délice des sens</title>
 </head>
 <body>
     <div id="main">
@@ -13,78 +16,133 @@
                 <a href="../index.html">
                     <i class="fas fa-arrow-left"></i>
                 </a>
-                <img src="../public/img/logo/ohmyfood.png" alt="Logo" />
+                <h1>ohmyfood</h1>
             </div>
         </header>
-            <div class="background__img"></div>
-        <section class="bigTile">
-            <div class="Titre">
-                <h2>La palette du goût</h2>
+            <div class="background__img--ledelice"></div>
+        <section class="tile-main">
+            <div class="titre">
+                <h2>Le délice des sens</h2>
                 <i class="far fa-heart"></i>
             </div>
-            <div class="entrees">
-                <h3>Entrées</h3>
-                <div class="menuTile">
-                    <h4>Tartare de thon</h4>
-                    <p>Assaisonné au yuzu</p>
-                    <p>25€</p>
-                    <div class="check"></div>
-                </div>
-                <div class="menuTile">
-                    <h4>Bouchée de homard croustillant</h4>
-                    <p>Et sa farandole de petits légumes</p>
-                    <p>35€</p>
-                    <div class="check"></div>
-                </div>
-                <div class="menuTile">
-                    <h4>Velouté de cèpes</h4>
-                    <p>Aux truffes</p>
-                    <p>20€</p>
-                    <div class="check"></div>
+            <div class="tile-type">
+                <h3 class="tile-type__titre">ENTRÉES</h3>
+                <div class="tile-type__box">
+                    <div class="tile-type__check">
+                        <div class="tile-type__menu">
+                            <h3>Tartare de thon</h3>
+                            <div class="tile-text">
+                                <p>Assaisonné au yuzu</p>
+                                <span>25€</span>
+                            </div>
+                        </div>
+                        <div class="check">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="tile-type__check">
+                        <div class="tile-type__menu">
+                            <h3>Bouchée de homard croustillant</h3>
+                            <div class="tile-text">
+                                <p>Et sa farandole de petits légumes</p>
+                                <span>35€</span>
+                            </div>
+                        </div>
+                        <div class="check">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="tile-type__check">
+                        <div class="tile-type__menu">
+                            <h3>Velouté de cèpes</h3>
+                            <div class="tile-text">
+                                <p>Aux truffes</p>
+                                <span>20€</span>
+                            </div>
+                        </div>
+                        <div class="check">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="plats">
-                <h3>Plats</h3>
-                <div class="menuTile">
-                    <h4>Poulet rôti aux herbes de provence</h4>
-                    <p>Et sa crème de truffe></p>
-                    <p>40€</p>
-                    <div class="check"></div>
+            <div class="tile-type">
+                <h3 class="tile-type__titre">PLATS</h3>
+                <div class="tile-type__check">
+                    <div class="tile-type__menu">
+                        <h3>Poulet rôti aux herbes de provence</h3>
+                        <div class="tile-text">
+                            <p>Et sa crème de truffe</p>
+                            <span>40€</span>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                 </div>
-                <div class="menuTile">
-                    <h4>Langouste rôtie</h4>
-                    <p>Et ses légumes de saison</p>
-                    <p>35€</p>
-                    <div class="check"></div>
+                <div class="tile-type__check">
+                    <div class="tile-type__menu">
+                        <h3>Langouste rôtie</h3>
+                        <div class="tile-text">
+                            <p>Et ses légumes de saison</p>
+                            <span>35€</span>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                 </div>
-                <div class="menuTile">
-                    <h4>Côte de boeuf angus</h4>
-                    <p>Et sa purée de panais</p>
-                    <p>44€</p>
-                    <div class="check"></div>
+                <div class="tile-type__check">
+                    <div class="tile-type__menu">
+                        <h3>Côte de boeuf angus</h3>
+                        <div class="tile-text">
+                            <p>Et sa purée de panais</p>
+                            <span>44€</span>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                 </div>
             </div>
-            <div class="desserts">
-                <h3>Desserts</h3>
-                <div class="menuTile">
-                    <h4>Farandole de desserts</h4>
-                    <p>Du chef</p>
-                    <p>18€</p>
-                    <div class="check"></div>
+            <div class="tile-type">
+                <h3 class="tile-type__titre">DESSERTS</h3>
+                <div class="tile-type__check">
+                    <div class="tile-type__menu">
+                        <h3>Farandole de desserts</h3>
+                        <div class="tile-text">
+                            <p>Du chef</p>
+                            <span>18€</span>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                 </div>
-                <div class="menuTile">
-                    <h4>Crème brulée</h4>
-                    <p>Revisitée</p>
-                    <p>22€</p>
-                    <div class="check"></div>
+                <div class="tile-type__check">
+                    <div class="tile-type__menu">
+                        <h3>Crème brulée</h3>
+                        <div class="tile-text">
+                            <p>Revisitée</p>
+                            <span>22€</span>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                 </div>
-                <div class="menuTile">
-                    <h4>Tiramisu</h4>
-                    <p>À la noisette</p>
-                    <p>23€</p>
-                    <div class="check"></div>
+                <div class="tile-type__check">
+                    <div class="tile-type__menu">
+                        <h3>Tiramisu</h3>
+                        <div class="tile-text">
+                            <p>À la noisette</p>
+                            <span>23€</span>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                 </div>
-
             </div>
             <a href="#" class="button">
                 <p>Commandez</p>
@@ -92,14 +150,13 @@
         </section>
         <footer>
             <div class ="bottom">
-                <img src="../public/img/logo/ohmyfood - Copie.png" alt="logo">
+                <h4>ohmyfood</h4>
                 <a class="fas fa-utensils" href="#">Proposez votre restaurant</a>
                 <a class="fas fa-hands-helping" href="#">Devenir partenaire</a>
                 <a href="#">Mentions légales</a>
-                <a href="#">Contact</a>
+                <a href="mailto:ohmyfood@ocr.fr">Contact</a>
             </div>
         </footer>
-
     </div>
     
 </body>

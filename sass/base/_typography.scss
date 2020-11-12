@@ -1,25 +1,37 @@
 @font-face {
-    font-family: "roboto";
-    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap)
+    font-family: 'Roboto', sans-serif;
+    src: url("https://fonts.googleapis.com/css2? family = Roboto: wght @ 300 & display = swap");
 }
 
 @font-face {
-    font-family: "medium";
-    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap)
+    font-family: 'Shrikhand', cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 }
 
-@font-face {
-    font-family: "bold";
-    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap)
+h1 {
+    font-family: "Shrikhand";
+    font-size: 2.3rem;
+    font-weight: 100;
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-family: "Shrikhand";
+    font-size: 1.2rem;
+    font-weight: 100;
 }
 
 p {
-    font-size: 1.3rem;
-    font-family: medium;
+    font-size: 1rem;
 }
 
 a  {

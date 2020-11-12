@@ -1,3 +1,20 @@
+@keyframes custom-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes load {
+  from {
+    visibility: visible;
+  }
+  to {
+    transition: visibility 1s;
+    visibility: hidden;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +22,7 @@
 }
 
 html {
-  font-family: "roboto";
+  font-family: "Roboto";
 }
 
 #main {
@@ -14,42 +31,106 @@ html {
   min-width: 320px;
   max-width: 767px;
   margin: auto;
+  z-index: 1;
+  position: relative;
+}
+#main .loading {
+  position: absolute;
+  visibility: hidden;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  animation: load 2s;
+  position: fixed;
+}
+#main .loading:before {
+  visibility: hidden;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  overflow: hidden;
+  background: white;
+  opacity: 1;
+  animation: load 2s;
+}
+#main .loading:after {
+  z-index: 2;
+  content: "";
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #9356DC;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: custom-loading 1s linear infinite;
 }
 
 @font-face {
-  font-family: "roboto";
-  src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap);
+  font-family: "Roboto", sans-serif;
+  src: url("https://fonts.googleapis.com/css2? family = Roboto: wght @ 300 & display = swap");
 }
 @font-face {
-  font-family: "medium";
-  src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap);
+  font-family: "Shrikhand", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 }
-@font-face {
-  font-family: "bold";
-  src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap);
+h1 {
+  font-family: "Shrikhand";
+  font-size: 2.3rem;
+  font-weight: 100;
 }
+
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-family: "Shrikhand";
+  font-size: 1.2rem;
+  font-weight: 100;
 }
 
 p {
-  font-size: 1.3rem;
-  font-family: medium;
+  font-size: 1rem;
 }
 
 a {
   text-decoration: none;
 }
 
-.header__logo img {
+header {
+  width: 100%;
+}
+
+.header__logo {
   display: flex;
   width: 50%;
   margin: auto;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  justify-content: center;
+}
+
+header .fas {
+  position: absolute;
+  color: #2c2c2c;
+  left: 10%;
+  font-size: 1.5rem;
 }
 
 .bottom {
   padding: 20px;
+  color: white;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -62,11 +143,6 @@ a {
 .bottom :before {
   padding: 0 10px 0 0;
   font-size: 10px;
-}
-
-.bottom img {
-  width: 25%;
-  padding: 0 0 1rem 0;
 }
 
 .localisation--box {
@@ -93,7 +169,7 @@ a {
 }
 
 #quote {
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  padding: 2.5rem 0.5rem 2.5rem 0.5rem;
   background-color: #F6F6F6;
 }
 
@@ -110,6 +186,11 @@ h2, p, a, i {
   width: 16rem;
   margin: auto;
   padding: 1rem 0;
+  box-shadow: 2px 2px 5px 2px #dddddd;
+}
+#quote a p:hover {
+  background: linear-gradient(170deg, #ed88e0, #a16be0);
+  box-shadow: 3px 3px 0.8rem #c4c4c4;
 }
 
 .container {
@@ -137,18 +218,23 @@ h2, p, a, i {
   color: black;
   box-shadow: 3px 3px 0.8rem #c4c4c4;
 }
+.tile .tile-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
 
 .tile i {
   color: grey;
 }
 
 .tile .number {
-  position: absolute;
   display: flex;
-  left: 8.5%;
   border-radius: 10rem;
   padding: 1px;
   background-color: #9356DC;
+  margin-left: -3%;
 }
 
 .tile .number p {
@@ -227,7 +313,6 @@ h2, p, a, i {
   height: 80px;
   width: 100%;
   background-color: white;
-  display: flex;
   align-items: center;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
@@ -239,31 +324,49 @@ h2, p, a, i {
   padding: 0 0 0 10px;
 }
 .thumbnail__description .fa-heart {
-  padding: 0 20px 0 0;
+  padding: 0 30px 0 0;
   font-size: 1.5rem;
 }
-.thumbnail__description .fas {
+.thumbnail__description .fas.zOne {
+  z-index: 1;
+  position: relative;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+.thumbnail__description .fas.zTwo {
   position: absolute;
-  right: 8px;
-  color: red;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+  transition: opacity 0.7s ease-out;
+  opacity: 0;
 }
-.thumbnail__description .far:hover + .fas > .fas__progress {
-  transform: scaleX(1);
+.thumbnail__description .fas.zTwo:hover {
+  opacity: 1;
 }
-.thumbnail__description .fas__progress {
-  transform-origin: bottom;
-  transform: scaleX(0);
-  transition: transform 1500ms;
+.thumbnail__description .fas.zThree {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, #fff, #fff);
 }
 .thumbnail__description p {
   padding: 0;
 }
 
-#background__img--lapalette {
+.background__img--lapalette {
   background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
   background-repeat: no-repeat;
   width: 100%;
-  height: 250px;
+  height: 300px;
   background-size: cover;
 }
 
@@ -280,12 +383,23 @@ h2, p, a, i {
   width: 16rem;
   margin: auto;
   padding: 1rem 0;
+  box-shadow: 2px 2px 5px 2px #dddddd;
+}
+.bigTile a p:hover {
+  background: linear-gradient(170deg, #ed88e0, #a16be0);
+  box-shadow: 3px 3px 0.8rem #c4c4c4;
 }
 
 .bigTile {
+  margin-top: -30px;
   background-color: #F6F6F6;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+}
+.bigTile h2 {
+  font-family: "Shrikhand";
+  font-style: italic;
+  justify-content: center;
 }
 
 .menuTile {
@@ -299,6 +413,142 @@ h2, p, a, i {
   width: 80%;
   border-radius: 1.5rem;
   color: black;
+}
+
+.background__img--ledelice {
+  background-image: url(../img/restaurants/4louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+}
+
+.tile-main {
+  margin-top: -25px;
+  background-color: #F6F6F6;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.tile-main .titre {
+  justify-content: center;
+  font-family: "Shrikhand";
+  font-weight: 100;
+  font-style: normal;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.tile-main .titre .h2 {
+  font-weight: 100;
+}
+.tile-main .titre .far {
+  font-size: 1.4rem;
+}
+.tile-main .tile-type__box {
+  display: block;
+  opacity: 1;
+  height: auto;
+}
+
+@keyframes box-appear {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 4.5rem;
+  }
+}
+.tile-main a p {
+  border: none;
+  border-radius: 5rem;
+  background: linear-gradient(170deg, #FF79DA, #9356DC);
+  color: white;
+  width: 16rem;
+  margin: auto;
+  padding: 1rem 0;
+  box-shadow: 2px 2px 5px 2px #dddddd;
+}
+.tile-main a p:hover {
+  background: linear-gradient(170deg, #ed88e0, #a16be0);
+  box-shadow: 3px 3px 0.8rem #c4c4c4;
+}
+
+.tile-type__titre {
+  position: relative;
+  margin: 1.5rem;
+}
+.tile-type__titre::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  display: block;
+  height: 3px;
+  background-color: #99E2D0;
+  bottom: -5px;
+}
+.tile-type .tile-type__check {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 1rem 1rem;
+  justify-content: center;
+  background-color: white;
+  border-radius: 1rem;
+  color: black;
+  box-shadow: 3px 3px 0.8rem #c4c4c4;
+  overflow: hidden;
+  animation: box-appear 2.5s ease;
+}
+.tile-type .tile-type__check:hover .check {
+  width: 5rem;
+  transition: 500ms;
+}
+.tile-type .tile-type__check:hover .check .fas {
+  font-size: 2rem;
+  transform: rotate(720deg);
+  transition: 400ms;
+}
+.tile-type .tile-type__check .tile-type__menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
+  width: 0;
+  flex-grow: 1;
+}
+.tile-type .tile-type__check .tile-type__menu h3 {
+  margin-top: 0.9rem;
+}
+.tile-type .tile-type__check .tile-type__menu .tile-text {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.tile-type .tile-type__check .tile-type__menu .tile-text p {
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.tile-type .tile-type__check .tile-type__menu .tile-text span {
+  font-weight: bold;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+  width: 0rem;
+  color: white;
+  background-color: #99E2D0;
+  align-items: center;
+  justify-content: center;
+}
+.check .fas.fa-check-circle {
+  font-size: 0rem;
+  padding: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

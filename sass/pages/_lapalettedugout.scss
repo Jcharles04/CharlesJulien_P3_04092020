@@ -1,8 +1,8 @@
-#background__img--lapalette {
+.background__img--lapalette {
     background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
     background-repeat: no-repeat;
     width: 100%;
-    height: 250px;
+    height: 300px;
     background-size: cover;
 }
 .titre {
@@ -14,9 +14,15 @@
     @include button;
 }
 .bigTile {
+    margin-top: -30px;
     background-color: $background-color;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    h2 {
+        font-family: "Shrikhand";
+        font-style: italic;
+        justify-content: center;
+    }
 }
 
 .menuTile {
