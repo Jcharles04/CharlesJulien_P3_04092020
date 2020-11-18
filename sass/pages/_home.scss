@@ -12,15 +12,26 @@
     @include blocsetting;
     flex-direction: row;
     background-color: $background-dark-color;
-    border-top: 3px solid $dark
+    border-top: 3px solid $dark;
+    & p {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
 }
 
 #quote {
     padding: $padding-vert;
     background-color: $background-color;
+    h2 {
+        text-align: center;
+        padding: $soft;
+    }
 }
-
-h2, p, a, i{
+.button p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+p, a, i{
     text-align: center;
     padding: $soft;
 }
@@ -34,7 +45,7 @@ h2, p, a, i{
     padding: $padding-vert;
     h2 {
         text-align: start;
-        padding: 0 0 1.5rem 0;
+        padding: 0 0 1.5rem 1rem;
     }
 }
 
@@ -45,37 +56,36 @@ h2, p, a, i{
         display: flex;
         flex-direction: row;
         width: 100%;
-        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
     }
 }
 
 .tile i {
     color: grey;
+    margin-left: 3%;
+    font-size: 1.2rem;
 }
 
 .tile .number {
     display: flex;
     border-radius: 10rem;
     padding: 1px;
+    font-size: 1rem;
     background-color: $primary-color;
     margin-left: -3%;
-}
-
-.tile .number p {
-    display: flex;
-    font-size: 1rem;
-    height: .5rem;
-    width: .5rem;
-    align-items: center;
-    color: white;
+    span {
+        display: flex;
+        height: .5rem;
+        width: .5rem;
+        align-items: center;
+        color: white;
+        padding: $soft;
+    }
 }
 
 #food {
     background-color: $background-color;
-    h2 {
-        text-align: start;
-        padding: 0 0 1.5rem 0;
-    }
 }
 
 .thumbnail {
@@ -108,7 +118,14 @@ h2, p, a, i{
             padding: 0;
         }
 }
-        
+
+@media screen and (min-width: 767px) {
+    .container {
+        & h2 {
+            text-align: center;
+        }
+    }
+}      
 
 
     

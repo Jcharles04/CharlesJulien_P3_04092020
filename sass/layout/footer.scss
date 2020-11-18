@@ -15,4 +15,11 @@
             }
 }
 
-
+@media screen and (min-width: 767px) {
+    .bottom {
+        text-align: center;
+        a {
+            text-align: center;
+        }
+    }
+}

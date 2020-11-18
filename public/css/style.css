@@ -1,3 +1,28 @@
+@keyframes tile-up {
+  0% {
+    transform: scale(1);
+    background-color: #F6F6F6;
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #ffc6ef;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #F6F6F6;
+  }
+}
+@keyframes font-up {
+  0% {
+    color: grey;
+  }
+  50% {
+    color: #9356DC;
+  }
+  100% {
+    color: grey;
+  }
+}
 @keyframes custom-loading {
   0% {
     transform: rotate(0deg);
@@ -15,6 +40,27 @@
     visibility: hidden;
   }
 }
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  .box {
+    max-width: 90%;
+    margin: 0 5% 0 5%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .box .tile {
+    width: 25%;
+  }
+  .box .thumbnail {
+    max-width: 35%;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +75,6 @@ html {
   width: 100%;
   height: 100%;
   min-width: 320px;
-  max-width: 767px;
   margin: auto;
   z-index: 1;
   position: relative;
@@ -37,10 +82,10 @@ html {
 #main .loading {
   position: absolute;
   visibility: hidden;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   height: 100%;
-  animation: load 2s;
+  animation: load 1.5s;
   position: fixed;
 }
 #main .loading:before {
@@ -49,15 +94,15 @@ html {
   content: "";
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 5;
   position: absolute;
   overflow: hidden;
   background: white;
   opacity: 1;
-  animation: load 2s;
+  animation: load 1.5s;
 }
 #main .loading:after {
-  z-index: 2;
+  z-index: 5;
   content: "";
   top: 50%;
   position: absolute;
@@ -73,7 +118,7 @@ html {
 
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url("https://fonts.googleapis.com/css2? family = Roboto: wght @ 300 & display = swap");
+  src: url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 }
 @font-face {
   font-family: "Shrikhand", cursive;
@@ -87,15 +132,15 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 900;
 }
 
-h3 {
+h4 {
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-h4 {
+h3 {
   font-family: "Shrikhand";
   font-size: 1.2rem;
   font-weight: 100;
@@ -107,6 +152,11 @@ p {
 
 a {
   text-decoration: none;
+}
+
+span {
+  font-family: "Roboto";
+  font-weight: 400;
 }
 
 header {
@@ -124,7 +174,7 @@ header {
 header .fas {
   position: absolute;
   color: #2c2c2c;
-  left: 10%;
+  left: 5%;
   font-size: 1.5rem;
 }
 
@@ -145,6 +195,14 @@ header .fas {
   font-size: 10px;
 }
 
+@media screen and (min-width: 767px) {
+  .bottom {
+    text-align: center;
+  }
+  .bottom a {
+    text-align: center;
+  }
+}
 .localisation--box {
   display: flex;
   justify-content: center;
@@ -167,13 +225,26 @@ header .fas {
   background-color: #EAEAEA;
   border-top: 3px solid #c4c4c4;
 }
+#localisation p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 
 #quote {
   padding: 2.5rem 0.5rem 2.5rem 0.5rem;
   background-color: #F6F6F6;
 }
+#quote h2 {
+  text-align: center;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
 
-h2, p, a, i {
+.button p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+p, a, i {
   text-align: center;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
@@ -202,7 +273,7 @@ h2, p, a, i {
 }
 .container h2 {
   text-align: start;
-  padding: 0 0 1.5rem 0;
+  padding: 0 0 1.5rem 1rem;
 }
 
 .tile {
@@ -213,45 +284,67 @@ h2, p, a, i {
   justify-content: center;
   background-color: #F6F6F6;
   align-items: center;
-  width: 80%;
+  width: 90%;
   border-radius: 1.5rem;
   color: black;
   box-shadow: 3px 3px 0.8rem #c4c4c4;
+}
+.tile p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-right: 20%;
+}
+.tile.first {
+  animation: 4s ease 3s tile-up;
+}
+.tile.first i {
+  animation: 4s ease 3s font-up;
+}
+.tile.second {
+  animation: 4s ease 6s tile-up;
+}
+.tile.second i {
+  animation: 4s ease 6s font-up;
+}
+.tile.third {
+  animation: 4s ease 9s tile-up;
+}
+.tile.third i {
+  animation: 4s ease 9s font-up;
 }
 .tile .tile-text {
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .tile i {
   color: grey;
+  margin-left: 3%;
+  font-size: 1.2rem;
 }
 
 .tile .number {
   display: flex;
   border-radius: 10rem;
   padding: 1px;
+  font-size: 1rem;
   background-color: #9356DC;
   margin-left: -3%;
 }
-
-.tile .number p {
+.tile .number span {
   display: flex;
-  font-size: 1rem;
   height: 0.5rem;
   width: 0.5rem;
   align-items: center;
   color: white;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 #food {
   background-color: #F6F6F6;
-}
-#food h2 {
-  text-align: start;
-  padding: 0 0 1.5rem 0;
 }
 
 .thumbnail {
@@ -327,28 +420,16 @@ h2, p, a, i {
   padding: 0 30px 0 0;
   font-size: 1.5rem;
 }
-.thumbnail__description .fas.zOne {
-  z-index: 1;
-  position: relative;
-  color: white;
-  -webkit-text-stroke: 1px black;
-}
-.thumbnail__description .fas.zTwo {
-  position: absolute;
-  top: 0;
-  left: 0;
+.thumbnail__description .far {
   z-index: 3;
+  position: relative;
+  color: black;
+  transition: all 1.2s;
+}
+.thumbnail__description .far:hover {
   color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
-  transition: opacity 0.7s ease-out;
-  opacity: 0;
 }
-.thumbnail__description .fas.zTwo:hover {
-  opacity: 1;
-}
-.thumbnail__description .fas.zThree {
+.thumbnail__description .fas {
   position: absolute;
   top: 0;
   left: 0;
@@ -356,71 +437,89 @@ h2, p, a, i {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+.thumbnail__description .fas:hover {
+  opacity: 1;
 }
 .thumbnail__description p {
   padding: 0;
 }
 
-.background__img--lapalette {
-  background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 300px;
-  background-size: cover;
+@media screen and (min-width: 767px) {
+  .container h2 {
+    text-align: center;
+  }
 }
-
-.titre {
-  display: flex;
-  flex-direction: row;
-}
-
-.bigTile a p {
-  border: none;
-  border-radius: 5rem;
-  background: linear-gradient(170deg, #FF79DA, #9356DC);
-  color: white;
-  width: 16rem;
-  margin: auto;
-  padding: 1rem 0;
-  box-shadow: 2px 2px 5px 2px #dddddd;
-}
-.bigTile a p:hover {
-  background: linear-gradient(170deg, #ed88e0, #a16be0);
-  box-shadow: 3px 3px 0.8rem #c4c4c4;
-}
-
-.bigTile {
-  margin-top: -30px;
-  background-color: #F6F6F6;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-}
-.bigTile h2 {
-  font-family: "Shrikhand";
-  font-style: italic;
-  justify-content: center;
-}
-
-.menuTile {
-  display: flex;
-  margin: 0.5rem auto;
-  flex-direction: row;
-  height: 5rem;
-  justify-content: center;
-  background-color: white;
-  align-items: center;
-  width: 80%;
-  border-radius: 1.5rem;
-  color: black;
-}
-
-.background__img--ledelice {
+#background__img--ledelice {
   background-image: url(../img/restaurants/4louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
   background-repeat: no-repeat;
   width: 100%;
   height: 250px;
   background-size: cover;
+}
+
+#background__img--alafran {
+  background-image: url(../img/restaurants/3toa-heftiba-DQKerTsQwi0-unsplash.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+}
+
+#background__img--lapalette {
+  background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+}
+
+#background__img--lanote {
+  background-image: url(../img/restaurants/2stil-u2Lp8tXIcjw-unsplash.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+}
+
+.loading {
+  position: absolute;
+  visibility: hidden;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  animation: load 1.5s;
+  position: fixed;
+}
+.loading:before {
+  visibility: hidden;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: absolute;
+  overflow: hidden;
+  background: white;
+  opacity: 1;
+  animation: load 1.5s;
+}
+.loading:after {
+  z-index: 5;
+  content: "";
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #9356DC;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: custom-loading 1s linear infinite;
 }
 
 .tile-main {
@@ -429,7 +528,7 @@ h2, p, a, i {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
-.tile-main .titre {
+.tile-main .title {
   justify-content: center;
   font-family: "Shrikhand";
   font-weight: 100;
@@ -438,12 +537,39 @@ h2, p, a, i {
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: baseline;
+  padding: 1.5rem 0 0 0;
 }
-.tile-main .titre .h2 {
+.tile-main .title .main-title {
   font-weight: 100;
+  font-size: 1.6rem;
 }
-.tile-main .titre .far {
-  font-size: 1.4rem;
+.tile-main .title .fa-heart {
+  padding: 0 30px 0 0;
+  font-size: 1.5rem;
+}
+.tile-main .title .far {
+  z-index: 3;
+  position: relative;
+  color: black;
+  transition: all 1.2s;
+}
+.tile-main .title .far:hover {
+  color: transparent;
+}
+.tile-main .title .fas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+.tile-main .title .fas:hover {
+  opacity: 1;
 }
 .tile-main .tile-type__box {
   display: block;
@@ -458,7 +584,7 @@ h2, p, a, i {
   }
   100% {
     opacity: 1;
-    height: 4.5rem;
+    height: 4.9rem;
   }
 }
 .tile-main a p {
@@ -489,7 +615,12 @@ h2, p, a, i {
   background-color: #99E2D0;
   bottom: -5px;
 }
-.tile-type .tile-type__check {
+.tile-type h2 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.tile-type__check {
   display: flex;
   flex-flow: row nowrap;
   margin: 1rem 1rem;
@@ -499,41 +630,41 @@ h2, p, a, i {
   color: black;
   box-shadow: 3px 3px 0.8rem #c4c4c4;
   overflow: hidden;
-  animation: box-appear 2.5s ease;
+  animation: box-appear 4s 1.5s ease;
 }
-.tile-type .tile-type__check:hover .check {
+.tile-type__check:hover .check {
   width: 5rem;
   transition: 500ms;
 }
-.tile-type .tile-type__check:hover .check .fas {
+.tile-type__check:hover .check .fas {
   font-size: 2rem;
   transform: rotate(720deg);
   transition: 400ms;
 }
-.tile-type .tile-type__check .tile-type__menu {
+.tile-type__check .tile-type__menu {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem 1rem 1rem;
+  padding: 1rem;
   width: 0;
   flex-grow: 1;
 }
-.tile-type .tile-type__check .tile-type__menu h3 {
+.tile-type__check .tile-type__menu h3 {
   margin-top: 0.9rem;
 }
-.tile-type .tile-type__check .tile-type__menu .tile-text {
+.tile-type__check .tile-type__menu .tile-text {
   margin-top: 0.3rem;
   display: flex;
   flex-flow: row nowrap;
   align-items: baseline;
   justify-content: space-between;
 }
-.tile-type .tile-type__check .tile-type__menu .tile-text p {
+.tile-type__check .tile-type__menu .tile-text p {
   padding: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.tile-type .tile-type__check .tile-type__menu .tile-text span {
+.tile-type__check .tile-type__menu .tile-text span {
   font-weight: bold;
 }
 
@@ -549,6 +680,31 @@ h2, p, a, i {
 .check .fas.fa-check-circle {
   font-size: 0rem;
   padding: 0;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  .title h3 {
+    padding-left: 28%;
+  }
+
+  .tile-type {
+    width: 80%;
+    margin: 0 10% 0 10%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .title h3 {
+    padding-left: 30%;
+  }
+
+  .tile-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .tile-box .tile-type {
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

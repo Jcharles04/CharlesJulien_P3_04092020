@@ -1,4 +1,4 @@
-.background__img--ledelice {
+#background__img--ledelice {
     background-image: url(../img/restaurants/4louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
     background-repeat: no-repeat;
     width: 100%;
@@ -6,12 +6,41 @@
     background-size: cover;
 }
 
+#background__img--alafran {
+    background-image: url(../img/restaurants/3toa-heftiba-DQKerTsQwi0-unsplash.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+}
+
+#background__img--lapalette {
+    background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+}
+
+#background__img--lanote {
+    background-image: url(../img/restaurants/2stil-u2Lp8tXIcjw-unsplash.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+}
+
+
+.loading {
+    @include loading-spin;
+}
+
 .tile-main {
     margin-top: -25px;
     background-color: $background-color;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    .titre {
+    .title {
         justify-content: center;
         font-family: "Shrikhand";
         font-weight: 100;
@@ -20,12 +49,12 @@
         flex-flow: row nowrap;
         justify-content: space-around;
         align-items: baseline;
-        .h2 {
+        padding: 1.5rem 0 0 0;
+        .main-title {
             font-weight: 100;
+            font-size: 1.6rem;
         }
-        .far {
-            font-size: 1.4rem;
-        }
+        @include heart
     }
     .tile-type__box {
         display: block;
@@ -42,7 +71,7 @@
 
     100% {
         opacity: 1;
-        height: 4.5rem;
+        height: 4.9rem;
     }
 }
 
@@ -63,6 +92,11 @@
                 bottom: -5px;
             }    
     }
+    & h2 {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+}    
 .tile-type__check {
     display: flex;
     flex-flow: row nowrap;
@@ -73,7 +107,7 @@
     color: black;
     @include box-shadow;
     overflow: hidden;
-    animation: box-appear 2.5s ease;
+    animation: box-appear 4s 1.5s ease;
         &:hover {
             & .check{
                 width: 5rem;
@@ -88,7 +122,7 @@
         .tile-type__menu {
             display: flex;
             flex-direction: column;
-            padding: 0 1rem 1rem 1rem;
+            padding: 1rem;
             width: 0;
             flex-grow: 1;
                 h3 {
@@ -109,7 +143,7 @@
                     span {
                         font-weight: bold;
                     }
-                }
+                
         }
     }
 }
@@ -125,5 +159,31 @@
     .fas.fa-check-circle {
         font-size: 0rem;
         padding: 0;
+    }
+}
+@media screen and (min-width:767px ) and (max-width: 1024px) {
+    .title {
+        h3 {
+            padding-left: 28%;
+        }
+    }
+    .tile-type {
+        width: 80%;
+        margin: 0 10% 0 10%;
+    }
+}
+@media screen and (min-width:1025px ) {
+    .title {
+        h3 {
+            padding-left: 30%;
+        }
+    }
+    .tile-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .tile-type {
+            width: 30%;
+        }
     }
 }
