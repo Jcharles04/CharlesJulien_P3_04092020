@@ -1,28 +1,3 @@
-@keyframes tile-up {
-  0% {
-    transform: scale(1);
-    background-color: #F6F6F6;
-  }
-  50% {
-    transform: scale(1.1);
-    background-color: #ffc6ef;
-  }
-  100% {
-    transform: scale(1);
-    background-color: #F6F6F6;
-  }
-}
-@keyframes font-up {
-  0% {
-    color: grey;
-  }
-  50% {
-    color: #9356DC;
-  }
-  100% {
-    color: grey;
-  }
-}
 @keyframes custom-loading {
   0% {
     transform: rotate(0deg);
@@ -195,6 +170,9 @@ header .fas {
   font-size: 10px;
 }
 
+/*--------------------------------
+|        MEDIA QUERIES           |
+--------------------------------*/
 @media screen and (min-width: 767px) {
   .bottom {
     text-align: center;
@@ -203,6 +181,7 @@ header .fas {
     text-align: center;
   }
 }
+/*   Localisation   */
 .localisation--box {
   display: flex;
   justify-content: center;
@@ -264,6 +243,7 @@ p, a, i {
   box-shadow: 3px 3px 0.8rem #c4c4c4;
 }
 
+/*   Fonctionnement   */
 .container {
   display: flex;
   justify-content: center;
@@ -277,6 +257,7 @@ p, a, i {
 }
 
 .tile {
+  box-shadow: 3px 3px 0.8rem #c4c4c4;
   display: flex;
   margin: 0.5rem auto;
   flex-direction: row;
@@ -287,7 +268,13 @@ p, a, i {
   width: 90%;
   border-radius: 1.5rem;
   color: black;
-  box-shadow: 3px 3px 0.8rem #c4c4c4;
+}
+.tile .tile-text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 .tile p {
   font-size: 1.1rem;
@@ -312,14 +299,32 @@ p, a, i {
 .tile.third i {
   animation: 4s ease 9s font-up;
 }
-.tile .tile-text {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-}
 
+@keyframes tile-up {
+  0% {
+    transform: scale(1);
+    background-color: #F6F6F6;
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #ffc6ef;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #F6F6F6;
+  }
+}
+@keyframes font-up {
+  0% {
+    color: grey;
+  }
+  50% {
+    color: #9356DC;
+  }
+  100% {
+    color: grey;
+  }
+}
 .tile i {
   color: grey;
   margin-left: 3%;
@@ -343,7 +348,8 @@ p, a, i {
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
-#food {
+/*   Restaurant   */
+#restaurant {
   background-color: #F6F6F6;
 }
 
@@ -448,11 +454,15 @@ p, a, i {
   padding: 0;
 }
 
+/*--------------------------------
+|        MEDIA QUERIES           |
+--------------------------------*/
 @media screen and (min-width: 767px) {
   .container h2 {
     text-align: center;
   }
 }
+/*   IMG Restaurant   */
 #background__img--ledelice {
   background-image: url(../img/restaurants/4louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
   background-repeat: no-repeat;
@@ -485,6 +495,7 @@ p, a, i {
   background-size: cover;
 }
 
+/*   Loading   */
 .loading {
   position: absolute;
   visibility: hidden;
@@ -522,6 +533,7 @@ p, a, i {
   animation: custom-loading 1s linear infinite;
 }
 
+/*   Menu   */
 .tile-main {
   margin-top: -25px;
   background-color: #F6F6F6;
@@ -635,6 +647,7 @@ p, a, i {
 .tile-type__check:hover .check {
   width: 5rem;
   transition: 500ms;
+  position: relative;
 }
 .tile-type__check:hover .check .fas {
   font-size: 2rem;
@@ -648,8 +661,11 @@ p, a, i {
   width: 0;
   flex-grow: 1;
 }
-.tile-type__check .tile-type__menu h3 {
-  margin-top: 0.9rem;
+.tile-type__check .tile-type__menu h4 {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tile-type__check .tile-type__menu .tile-text {
   margin-top: 0.3rem;
@@ -659,7 +675,7 @@ p, a, i {
   justify-content: space-between;
 }
 .tile-type__check .tile-type__menu .tile-text p {
-  padding: 0;
+  padding: 0 0.6rem 0 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -682,6 +698,9 @@ p, a, i {
   padding: 0;
 }
 
+/*--------------------------------
+|        MEDIA QUERIES           |
+--------------------------------*/
 @media screen and (min-width: 767px) and (max-width: 1024px) {
   .title h3 {
     padding-left: 28%;
@@ -700,7 +719,7 @@ p, a, i {
   .tile-box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .tile-box .tile-type {
     width: 30%;

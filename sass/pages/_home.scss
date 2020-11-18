@@ -1,3 +1,6 @@
+/*   Localisation   */
+
+
 .localisation--box {
     @include blocsetting;
     text-align: center;
@@ -40,6 +43,8 @@ p, a, i{
     @include button;
 }
 
+/*   Fonctionnement   */
+
 .container {
     @include blocsetting;
     padding: $padding-vert;
@@ -50,14 +55,73 @@ p, a, i{
 }
 
 .tile {
-    @include tile;
     @include box-shadow;
+    display: flex;
+    margin: .5rem auto;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: center;
+    background-color: $background-color;
+    align-items: center;
+    width: 90%;
+    border-radius: 1.5rem;
+    color: black;
     .tile-text {
         display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-around;
         align-items: center;
+    }
+    p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-right: 20%;
+    }
+    &.first {
+        animation : 4s ease 3s  tile-up;
+        i {
+            animation: 4s ease 3s  font-up;
+        }
+    }
+    &.second {
+        animation : 4s ease 6s  tile-up;
+        i {
+            animation: 4s ease 6s  font-up;
+        }
+    }
+    &.third {
+        animation : 4s ease 9s  tile-up;
+        i {
+            animation: 4s ease 9s  font-up;
+        }
+    }
+}
+
+@keyframes tile-up {
+    0% {
+        transform: scale(1);
+        background-color: $background-color;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: lighten($secondary-color, 15%);
+    }
+    100% {
+        transform: scale(1);
+        background-color: $background-color;
+    }
+}
+
+@keyframes font-up {
+    0% {
+        color: grey
+    }
+    50% {
+        color: $primary-color;
+    }
+    100% {
+        color: grey;
     }
 }
 
@@ -84,16 +148,33 @@ p, a, i{
     }
 }
 
-#food {
+/*   Restaurant   */
+
+#restaurant {
     background-color: $background-color;
 }
 
 .thumbnail {
-    @include thumbnail;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    color: #000;
+    box-shadow: 0px 0px 30px #dadada
 }
 
 .img { 
-    @include imgRestaurant;
+    height: 200px;
+    position: relative;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-repeat: no-repeat;
+    background-position:  50% 65% ;
+    background-color: white;
+    background-size: cover;
 }
 .img__one {
     background-image: url(../img/restaurants/1jay-wennington-N_Y88TWmGwA-unsplash.jpg);
@@ -113,11 +194,31 @@ p, a, i{
 }
 
 .thumbnail__description {
-    @include thumbnail__description;
-        p {
-            padding: 0;
-        }
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    height: 80px;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    .text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 0 0 10px;
+    }
+    @include heart;
+    p {
+        padding: 0;
+    }
 }
+
+/*--------------------------------
+|        MEDIA QUERIES           |
+--------------------------------*/
 
 @media screen and (min-width: 767px) {
     .container {

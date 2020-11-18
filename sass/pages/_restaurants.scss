@@ -1,3 +1,5 @@
+/*   IMG Restaurant   */
+
 #background__img--ledelice {
     background-image: url(../img/restaurants/4louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
     background-repeat: no-repeat;
@@ -30,10 +32,13 @@
     background-size: cover;
 }
 
+/*   Loading   */
 
 .loading {
     @include loading-spin;
 }
+
+/*   Menu   */
 
 .tile-main {
     margin-top: -25px;
@@ -112,6 +117,7 @@
             & .check{
                 width: 5rem;
                 transition: 500ms;
+                position: relative;
                 & .fas {
                     font-size: 2rem;
                     transform: rotate(720deg);
@@ -125,8 +131,11 @@
             padding: 1rem;
             width: 0;
             flex-grow: 1;
-                h3 {
-                    margin-top: .9rem;
+                h4 {
+                    flex-wrap: nowrap;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
                 .tile-text {
                     margin-top: .3rem;
@@ -135,7 +144,7 @@
                     align-items: baseline;
                     justify-content: space-between;
                     p {
-                        padding: 0;
+                        padding: 0 .6rem 0 0;
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         overflow: hidden;
@@ -161,6 +170,11 @@
         padding: 0;
     }
 }
+
+/*--------------------------------
+|        MEDIA QUERIES           |
+--------------------------------*/
+
 @media screen and (min-width:767px ) and (max-width: 1024px) {
     .title {
         h3 {
@@ -181,7 +195,7 @@
     .tile-box {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         .tile-type {
             width: 30%;
         }
